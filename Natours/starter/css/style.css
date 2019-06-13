@@ -152,6 +152,7 @@ body {
   display: inline-block;
   background-image: -webkit-gradient(linear, left top, right top, from(#7ed56f), to(#55c57a));
   background-image: linear-gradient(to right, #7ed56f, #55c57a);
+  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: .2rem;
@@ -278,10 +279,27 @@ body {
 }
 
 .btn-text:active {
+  -webkit-transform: translateY(-0.2rem);
+          transform: translateY(-0.2rem);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+}
+
+.composition {
+  position: relative;
+}
+
+.composition__photo {
+  width: 55%;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  position: absolute;
+}
+
+.composition__photo--p1 {
+  left: 0;
+  top: -2rem;
 }
 
 .header {
