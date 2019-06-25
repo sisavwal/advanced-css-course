@@ -17,6 +17,8 @@
         -o-border-radius: 50%;
         z-index: 2000;
         @include shadow-10;
+        text-align: center;
+        cursor: pointer;
     }
 
     &__background {
@@ -106,6 +108,8 @@
         }
     }
 
+    //FUNCTIONALITY
+
     &__checkbox:checked ~ &__background {
         transform: scale(80);
         -webkit-transform: scale(80);
@@ -117,5 +121,49 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+    }
+
+    //ICON
+
+    &__icon {
+        position: relative;
+        margin-top: 3.25rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-333;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.2s;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+        }
+
+        &::before {
+            top: -0.8rem;
+        }
+
+        &::after {
+            top: 0.8rem;
+        }
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
     }
 }
