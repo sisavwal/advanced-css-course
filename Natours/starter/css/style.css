@@ -938,6 +938,22 @@ body {
   top: 1rem;
 }
 
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon:before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon:after {
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
 .header {
   position: relative;
   height: 95vh;
