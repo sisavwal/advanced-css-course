@@ -20,3 +20,60 @@
 @mixin shadow-10 {
     box-shadow: 0 1rem 3rem $color-shadow-10;
 }
+
+@mixin shadow-20 {
+    box-shadow: 0 1rem 4rem $color-shadow-20;
+}
+
+@mixin abscentre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+//*  Media query mamger
+/*
+
+*0 - 600px:              Phone                          37.5em max
+*600 - 900px:            Tablet - portrait              56.25em max
+*900 - 1200px:           Tablet - landscape             75em max
+*[1200 1800] is where the normal styles display        112.5em max
+*1800+px                 large format displays         112.5em min
+
+*$breapoint argument choices:
+* - phone
+* - tab-port
+* - tab-land
+* - hdmi
+
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == hdmi {
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+}
